@@ -47,6 +47,7 @@ about/fixtures/
 enquire/fixtures/
 home/fixtures/
 
-db.sqlite3
+*.sqlite3
+*.pyc
 
 htmlcov/
