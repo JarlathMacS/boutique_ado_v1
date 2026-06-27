@@ -7,3 +7,6 @@ class CheckoutConfig(AppConfig):
 
     def ready(self):
         import checkout.signals     # noqa: F401
+
+        # from importlib import import_module
+        # import_module('checkout.signals')
