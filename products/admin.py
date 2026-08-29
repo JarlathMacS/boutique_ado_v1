@@ -14,6 +14,7 @@ class ProductAdmin(admin.ModelAdmin):
         'rating',
         'image',
     )
+
     ordering = ('sku',)
 
 
@@ -23,6 +24,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
     )
+
     ordering = ('name',)
 
 
