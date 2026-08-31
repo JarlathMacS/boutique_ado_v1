@@ -2,17 +2,12 @@
 {% load static %}
 
 {% block page-header %}
-
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
     </div>
 </div>
-
 {% endblock page-header %}
-
-
-
 
 {% block content %}
 <div class="overlay"></div>
@@ -101,6 +96,12 @@
                                         5</small>
                                     {% else %}
                                     <small class="text-muted">No Rating</small>
+                                    {% endif %}
+                                    {% if request.user.is_superuser %}
+                                        <small class="ml-3">
+                                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                                            <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
+                                        </small>
                                     {% endif %}
                                 </div>
                             </div>
