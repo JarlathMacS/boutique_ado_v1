@@ -216,10 +216,10 @@ if 'USE_AWS' in os.environ:
 
     # Static and Media Files
     AWS_S3_CUSTOM_DOMAIN = (
-        f'{AWS_STORAGE_BUCKET_NAME}.s3.'
-        # f'{AWS_STORAGE_BUCKET_NAME}.s3-website.'
-        # f'{AWS_S3_REGION_NAME}.amazonaws.com'
-        'amazonaws.com'
+        # f'{AWS_STORAGE_BUCKET_NAME}.s3.'
+        f'{AWS_STORAGE_BUCKET_NAME}.s3-website.'
+        f'{AWS_S3_REGION_NAME}.amazonaws.com'
+        # 'amazonaws.com'
     )
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATICFILES_LOCATION = 'static'
