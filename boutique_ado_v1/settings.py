@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    # 'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'boutique_ado_v1.urls'
@@ -124,6 +124,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'boutique_ado_v1.wsgi.application'
 
@@ -247,10 +248,16 @@ if 'DEVELOPMENT' in os.environ:
     DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
 else:
     # Email
+    # Tell django-allauth/Django to use the standard SMTP backend
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
     EMAIL_USE_TLS = True
+    EMAIL_USE_SSL = False                   # Set to True if using port 465
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_PORT = 587
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+
+    # django-allauth email settings
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    # ACCOUNT_EMAIL_SUBJECT_PREFIX = '[Your Site] '
